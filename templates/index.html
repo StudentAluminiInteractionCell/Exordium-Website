@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exordium-Register</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename= 'css/styles.css')}}" />
+</head>
+
+<body>
+  <div class="mainscreen">
+    <div class="topimg">
+      <img style="width: 40%; text-align: center" src="{{ url_for('static',filename= 'assets/LogoMockup.png')}}" alt=""
+        srcset="" />
+    </div>
+    <div class="toppart">
+      <div class="herotext">
+        <p>
+          " Get notes directly to your mail as soon as the new lecture uploads. "
+          <br />Easy way to get notes 👊!!
+        </p>
+      </div>
+    </div>
+
+    <div class="bottompart">
+      <div class="imgpart">
+        <img src="{{ url_for('static',filename= 'assets/LogoMockup.png')}}" class="heroimg" alt="" />
+      </div>
+
+      <div class="formpart" style="overflow: scroll; height: 400px">
+        <form action="/" method="POST" onsubmit="required()" novalidate>
+          <h2>Registeration</h2>
+
+          <label for="name">Your Full Name</label>
+          <input class="inputbox" name="name" type="text" autocomplete="off" required />
+
+          <label for="Rollno">Your Roll Number</label>
+          <input class="inputbox" type="text" name="rno" autocomplete="off" required />
+
+          <label for="Rollno">Your Tiet Mail</label>
+          <input class="inputbox" type="text" name="email" autocomplete="off" required />
+
+          <label for="Rollno">Partner's Name</label>
+          <input class="inputbox" type="text" name="p_name" autocomplete="off" required />
+
+          <label for="Rollno">Partner's Roll Number</label>
+          <input class="inputbox" type="text" name="p_rno" autocomplete="off" required />
+
+          <label for="Rollno">Partner's Tiet Mail</label>
+          <input class="inputbox" type="text" name="p_email" autocomplete="off" required />
+
+          <label for="Rollno">What’s your secret talent? </label>
+          <input class="inputbox" type="text" name="Q1" autocomplete="off" required />
+
+          <label for="Rollno">If you had to choose a screen name for yourself, what would it be? </label>
+          <input class="inputbox" type="text" name="Q2" autocomplete="off" required />
+
+          <label for="Rollno">What’s the funniest movie line you’ve ever heard?</label>
+          <input class="inputbox" type="text" name="Q3" autocomplete="off" required />
+
+          <label class="privacy_policy">By clicking the submit button, you agree to register in
+            <span>Exordium</span></label>
+
+          <button class="submitbtn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static',filename= 'js/script.js')}}"></script>
+</body>
+
+</html>
