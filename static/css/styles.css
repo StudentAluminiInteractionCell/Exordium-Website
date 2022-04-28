@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Whisper', cursive;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,25 +15,24 @@ body::-webkit-scrollbar {
 }
 
 .mainscreen {
-    min-height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #DFDBE5;
-    background-image: url('../assets/WebsiteBG.png');
-    background-size: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url("../assets/WebsiteBG.png");
+    background-size: 100% 100%;
 }
 
 
 .toppart {
     display: flex;
     flex-direction: column;
-    padding: 3rem 10rem 10rem;
     width: 60rem;
+    margin-right: 32px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 32px;
+    margin-bottom: 10%;
 }
 
 .topimg {
@@ -75,7 +74,7 @@ body::-webkit-scrollbar {
 .bottompart {
     width: 60rem;
     margin: 0 auto;
-    background: #180A0A;
+    background: black;
     position: relative;
     top: -7rem;
     border-radius: 1.5rem;
@@ -87,8 +86,9 @@ body::-webkit-scrollbar {
 
 
 .imgpart {
-    background-color: #180A0A;
+    background-color: black;
     width: 25rem;
+    height: auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -109,6 +109,7 @@ body::-webkit-scrollbar {
     border-top-right-radius: 1.5rem;
     padding: 2rem 2rem 4rem;
     overflow: hidden;
+
 }
 
 .formpart::-webkit-scrollbar {
@@ -117,7 +118,7 @@ body::-webkit-scrollbar {
 
 h2 {
     color: #DEA057;
-    font-size: 1.9rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
     font-weight: 600;
 }
@@ -138,27 +139,6 @@ label {
     border-radius: 0.3rem;
     font-family: 'Roboto', sans-serif;
     color: #615a5a;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-.options {
-    width: 25rem;
-    padding: 1rem;
-    border: 2px solid #b9b6b6;
-    margin-bottom: 1rem;
-    border-radius: 0.3rem;
-}
-
-.eachoption {
-    display: inline-block;
-    width: 49%;
-}
-
-.eachoption span {
-    vertical-align: top;
-    color: #615a5a;
-    font-size: 1.1rem;
     font-weight: 500;
 }
 
@@ -200,7 +180,7 @@ label.agree {
 .submitbtn {
     width: 13rem;
     padding: 0.7rem;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     color: white;
     background: #DEA057;
     border: 0;
@@ -208,6 +188,7 @@ label.agree {
     border-radius: 0.4rem;
     cursor: pointer;
     transition: 0.4s;
+    font-family: 'Whisper', cursive;
 }
 
 

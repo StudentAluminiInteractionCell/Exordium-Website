@@ -1,6 +1,6 @@
 function required() {
     var empt = document.getElementsByClassName('inputbox').value;
-    if (empt !== "") {
+    if (empt !== null) {
         alert('Code has accepted : you can try another');
         return true;
     }
