@@ -7,7 +7,6 @@ db = SQLAlchemy(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/saic'
 
-
 class Regis_form(db.Model):
     rno = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)

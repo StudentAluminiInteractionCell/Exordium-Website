@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-    font-family: 'Whisper', cursive;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background-image: url("../assets/WebsiteBG.png");
+    background-size: 100% 100%;
 
 }
 
@@ -19,10 +23,7 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../assets/WebsiteBG.png");
-    background-size: 100% 100%;
 }
-
 
 .toppart {
     display: flex;
@@ -70,7 +71,6 @@ body::-webkit-scrollbar {
     line-height: 1.5;
 }
 
-
 .bottompart {
     width: 60rem;
     margin: 0 auto;
@@ -82,8 +82,8 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: row;
     overflow: hidden;
+    color: white;
 }
-
 
 .imgpart {
     background-color: black;
@@ -94,6 +94,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
+    padding: 2rem;
 }
 
 .heroimg {
@@ -109,26 +110,31 @@ body::-webkit-scrollbar {
     border-top-right-radius: 1.5rem;
     padding: 2rem 2rem 4rem;
     overflow: hidden;
-
 }
 
 .formpart::-webkit-scrollbar {
     display: none;
 }
 
+.formpart h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
 h2 {
-    color: #DEA057;
+    color: #dea057;
     font-size: 3rem;
     margin-bottom: 2rem;
     font-weight: 600;
 }
 
 label {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
     color: grey;
     font-weight: 400;
     display: block;
     margin: 0.5rem 0;
+    width: 26rem;
 }
 
 .inputbox {
@@ -137,17 +143,10 @@ label {
     border: 2px solid #b9b6b6;
     margin-bottom: 1rem;
     border-radius: 0.3rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     color: #615a5a;
     font-weight: 500;
 }
-
-input[type=checkbox] {
-    width: 1.2rem;
-    height: 1.2rem;
-}
-
-
 
 input.agree {
     width: 0.8rem;
@@ -159,7 +158,6 @@ label.agree {
     display: inline-block;
 }
 
-
 .privacy_policy {
     font-size: 0.9rem;
     color: #a29b9b;
@@ -170,58 +168,56 @@ label.agree {
 }
 
 .privacy_policy span {
-    color: #DEA057;
+    color: #dea057;
     font-weight: 500;
     cursor: pointer;
 }
-
-
 
 .submitbtn {
     width: 13rem;
     padding: 0.7rem;
     font-size: 1.8rem;
     color: white;
-    background: #DEA057;
+    background: #dea057;
     border: 0;
     outline: 0;
     border-radius: 0.4rem;
     cursor: pointer;
     transition: 0.4s;
-    font-family: 'Whisper', cursive;
+    font-family: "Montserrat", sans-serif;
 }
-
 
 .submitbtn:hover {
     transform: scale(1.02) translateY(-2px);
     box-shadow: 3px 3px 6px #38373785;
 }
 
-
 @media only screen and (max-width: 1000px) {
     .toppart {
         padding: 3rem 2rem 10rem;
     }
 
+    .topimg {
+        width: 100%;
+        height: 100%;
+    }
+
     .bottompart {
         flex-direction: column;
         width: auto;
+        height: 1200px;
     }
 
     .imgpart {
         width: 100%;
         border-top-right-radius: 1.5rem;
         border-bottom-left-radius: 0;
-    }
-
-    .heroimg {
-        width: 10rem;
-        height: 10rem;
-        margin: 1rem;
+        display: none;
     }
 
     .formpart {
         width: auto;
+        margin: 1rem;
     }
 }
 
@@ -241,5 +237,17 @@ label.agree {
 
     .links {
         display: none;
+    }
+
+    label {
+        width: 16rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .bottompart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
