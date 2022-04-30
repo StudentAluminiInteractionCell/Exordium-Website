@@ -3,6 +3,7 @@ from sre_constants import SUCCESS
 from black import err
 from flask import Flask, abort, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import IntegrityError
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
@@ -39,14 +40,20 @@ def form():
 
         if not rno or not name or not email or not p_rno or not p_name or not p_email or not talent or not screen_name or not movie_line:
             error_message = "All Form Fields Required"
-            return render_template('index.html')
+            return render_template('index.html',error_message=error_message)
 
         else:
-            entry = Regis_form(rno=rno, name=name, email=email, p_rno=p_rno, p_name=p_name, p_email=p_email,
-                               talent=talent, screen_name=screen_name, movie_line=movie_line, date=datetime.now())
 
-            db.session.add(entry)
-            db.session.commit()
+            try:
+                entry = Regis_form(rno=rno, name=name, email=email, p_rno=p_rno, p_name=p_name, p_email=p_email,
+                                talent=talent, screen_name=screen_name, movie_line=movie_line, date=datetime.now())
+
+                db.session.add(entry)
+                db.session.commit()
+            except IntegrityError:
+                db.session.rollback()
+                return render_template('integrityError.html')
+
             return render_template('success.html')
 
     return render_template('index.html')
