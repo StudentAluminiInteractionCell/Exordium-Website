@@ -1,6 +1,4 @@
 from datetime import datetime
-from sre_constants import SUCCESS
-from black import err
 from flask import Flask, abort, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
@@ -8,10 +6,15 @@ from sqlalchemy.exc import IntegrityError
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/saic'
+local_server = True
+
+if local_server:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/saic'
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/saic'
 
 
-class Regis_form(db.Model):
+class Form(db.Model):
     rno = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), nullable=False)
@@ -40,16 +43,20 @@ def form():
 
         if not rno or not name or not email or not p_rno or not p_name or not p_email or not talent or not screen_name or not movie_line:
             error_message = "All Form Fields Required"
-            return render_template('index.html',error_message=error_message)
+            return render_template('index.html', error_message=error_message)
+
+        elif "be21" not in email and "btech21" not in email:
+            email_error = "Form only for BE21/BTECH21"
+            return render_template('index.html', email_error=email_error)
 
         else:
-
             try:
-                entry = Regis_form(rno=rno, name=name, email=email, p_rno=p_rno, p_name=p_name, p_email=p_email,
-                                talent=talent, screen_name=screen_name, movie_line=movie_line, date=datetime.now())
+                entry = Form(rno=rno, name=name, email=email, p_rno=p_rno, p_name=p_name, p_email=p_email,
+                             talent=talent, screen_name=screen_name, movie_line=movie_line, date=datetime.now())
 
                 db.session.add(entry)
                 db.session.commit()
+
             except IntegrityError:
                 db.session.rollback()
                 return render_template('integrityError.html')
@@ -63,6 +70,7 @@ def form():
 def not_found(e):
     print(e)
     return render_template('404.html')
+
 
 @app.errorhandler(500)
 def not_found(e):
