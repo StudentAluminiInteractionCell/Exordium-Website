@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 
 body {
     font-family: "Montserrat", sans-serif;
@@ -193,14 +195,14 @@ label.agree {
 }
 
 h1 {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Dancing Script', cursive;
     font-weight: bold;
     font-size: 100px;
-    color: rgb(179, 179, 179);
+    color: #BF953F;
     text-align: center;
 }
 
-.success{
+.success {
     display: grid;
     align-items: center;
     margin: none;
