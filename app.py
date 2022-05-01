@@ -18,9 +18,11 @@ class Form(db.Model):
     rno = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), nullable=False)
+    phone = db.Column(db.Integer, nullable=False)
     p_rno = db.Column(db.Integer, nullable=False)
     p_name = db.Column(db.String(50), nullable=False)
     p_email = db.Column(db.String(100), nullable=False)
+    p_phone = db.Column(db.Integer, nullable=False)
     talent = db.Column(db.String(255), nullable=False)
     screen_name = db.Column(db.String(100), nullable=False)
     movie_line = db.Column(db.String(255), nullable=False)
@@ -34,14 +36,16 @@ def form():
         rno = request.form.get('rno')
         name = request.form.get('name')
         email = request.form.get('email')
+        phone = request.form.get('phone')
         p_rno = request.form.get('p_rno')
         p_name = request.form.get('p_name')
         p_email = request.form.get('p_email')
+        p_phone = request.form.get('p_phone')
         talent = request.form.get('Q1')
         screen_name = request.form.get('Q2')
         movie_line = request.form.get('Q3')
 
-        if not rno or not name or not email or not p_rno or not p_name or not p_email or not talent or not screen_name or not movie_line:
+        if not rno or not name or not email or not phone or not p_rno or not p_name or not p_email or not p_phone or not talent or not screen_name or not movie_line:
             error_message = "All Form Fields Required"
             return render_template('index.html', error_message=error_message)
 
@@ -51,7 +55,7 @@ def form():
 
         else:
             try:
-                entry = Form(rno=rno, name=name, email=email, p_rno=p_rno, p_name=p_name, p_email=p_email,
+                entry = Form(rno=rno, name=name, email=email, phone=phone, p_rno=p_rno, p_name=p_name, p_email=p_email, p_phone=p_phone,
                              talent=talent, screen_name=screen_name, movie_line=movie_line, date=datetime.now())
 
                 db.session.add(entry)
@@ -60,7 +64,7 @@ def form():
             except IntegrityError:
                 db.session.rollback()
                 return render_template('integrityError.html')
-                
+
             except OperationalError:
                 db.session.rollback()
                 return render_template('404.html')

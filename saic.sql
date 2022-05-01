@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2022 at 04:57 PM
+-- Generation Time: May 01, 2022 at 09:24 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -31,9 +31,11 @@ CREATE TABLE `form` (
   `rno` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `phone` int(11) NOT NULL,
   `p_rno` int(11) NOT NULL,
   `p_name` varchar(50) NOT NULL,
   `p_email` varchar(100) NOT NULL,
+  `p_phone` int(11) NOT NULL,
   `talent` varchar(255) NOT NULL,
   `screen_name` varchar(100) NOT NULL,
   `movie_line` varchar(255) NOT NULL,
