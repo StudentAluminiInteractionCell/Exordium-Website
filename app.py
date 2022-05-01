@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, abort, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import IntegrityError, OperationalError
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
@@ -60,6 +60,10 @@ def form():
             except IntegrityError:
                 db.session.rollback()
                 return render_template('integrityError.html')
+                
+            except OperationalError:
+                db.session.rollback()
+                return render_template('404.html')
 
             return render_template('success.html')
 
